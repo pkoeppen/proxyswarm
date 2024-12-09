@@ -1,5 +1,12 @@
 #!/bin/bash
 
+for var in PROXY_USERNAME PROXY_PASSWORD; do
+  if [ -z "${!var}" ]; then
+		echo "Error: $var is not set." >&2
+		exit 1
+	fi
+done
+
 setup_docker() {
 	# This setup has been copied from the official Docker setup guide for Debian.
 	# https://docs.docker.com/engine/install/debian/
@@ -24,9 +31,11 @@ setup_docker() {
 	sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get install -y git vim
-
 setup_docker
 
+docker run --name proxy -d --restart=always -p 8081:3128 \
+	--env USERNAME=$PROXY_USERNAME \
+	--env PASSWORD=$PROXY_PASSWORD \
+	yegor256/squid-proxy
+
+echo "Success"

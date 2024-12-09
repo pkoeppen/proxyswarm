@@ -1,5 +1,5 @@
 ### To run:
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/pkoeppen/proxyswarm/master/setup.sh | sudo bash
+ssh root@1.2.3.4 "curl -fsSL https://raw.githubusercontent.com/pkoeppen/proxyswarm/master/setup.sh | sudo bash"
 ```
