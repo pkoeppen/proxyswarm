@@ -31,7 +31,7 @@ setup_docker() {
 start_proxy() {
   if docker ps -a --format "{{.Names}}" | grep -q "^${CONTAINER_NAME}$"; then
     # If proxy container already exists, start it.
-    docker start $CONTAINER_NAME
+    docker start $CONTAINER_NAME > /dev/null
   else
     # Else, check env vars and create a new container.
     for var in PROXY_USERNAME PROXY_PASSWORD; do
@@ -44,7 +44,7 @@ start_proxy() {
   docker run --name proxy -d --restart=always -p $PROXY_PORT:3128 \
     --env USERNAME=$PROXY_USERNAME \
     --env PASSWORD=$PROXY_PASSWORD \
-    yegor256/squid-proxy
+    yegor256/squid-proxy > /dev/null
   fi
 
   echo "Proxy running on host $PROXY_HOST:$PROXY_PORT"
