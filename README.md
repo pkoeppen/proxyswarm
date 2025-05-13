@@ -11,7 +11,7 @@ ssh -i ~/.ssh/id_proxyswarm root@ip_address "\
 ### To test:
 
 ```shell
-curl -fsSL -vvv --proxy your_proxy_host -U username:password https://httpbin.org/ip
+curl -fsSL -vvv --proxy your_proxy_host:8081 -U username:password https://httpbin.org/ip
 ```
 
 TODO: Add proxy for-loop with health checks; determine whether proxy already running

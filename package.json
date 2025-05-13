@@ -1,0 +1,30 @@
+{
+  "name": "proxyswarm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.806.0",
+    "@aws-sdk/client-service-quotas": "^3.806.0",
+    "dotenv": "^16.4.7",
+    "https-proxy-agent": "^7.0.6",
+    "node-fetch": "^3.3.2",
+    "undici": "^7.9.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.4",
+    "@eslint/eslintrc": "^3",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^20",
+    "colors": "^1.4.0",
+    "eslint": "^9",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "typescript": "^5",
+    "typescript-eslint": "^8.20.0",
+    "winston": "^3.17.0"
+  }
+}

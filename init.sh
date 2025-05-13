@@ -7,9 +7,9 @@ PROXY_FILE=".proxies"
 start_proxy() {
 	PROXY_HOST=$1
 	echo "Starting proxy on $PROXY_HOST"
-	ssh -i ~/.ssh/id_proxyswarm root@$PROXY_HOST -o StrictHostKeyChecking=no \
+	ssh -i ~/.ssh/id_aws_proxy.pem admin@$PROXY_HOST -o StrictHostKeyChecking=no \
   		"curl -fsSL https://raw.githubusercontent.com/pkoeppen/proxyswarm/master/setup.sh |\
-  		PROXY_USERNAME=$PROXY_USERNAME PROXY_PASSWORD=$PROXY_PASSWORD sudo -E bash"
+  		PROXY_USERNAME=$PROXY_USERNAME PROXY_PASSWORD=$PROXY_PASSWORD sudo -E bash" < /dev/null
 }
 
 process_many() {
